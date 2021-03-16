@@ -1,0 +1,90 @@
+@charset "utf-8";
+body{background: #f7f7f7;}
+.row{height: 400px;}
+.scroll-group{position: relative;background: white;width: 100%;}
+#slider{height:450px;}
+.content-main{width:33.333333%;background:white;}
+.container{background: #f4f8fa;height: 420px;}
+
+/*Signin*/
+.fist-footer .container-footer{border: none;}
+.col-hidden{width: 33.333333%;}
+.container-signin{width: 33.333333%;margin: 15px 0;background: #fff;border: 1px solid #dedede;height: 390px;}
+.container-signin h6{display: block;text-align: center;padding: 20px 0;text-transform: uppercase;font-size: 23px;font-family: "Avenir 65 Medium",Arial;}
+.container-signin ul li{list-style: none;margin-bottom: 15px;}
+.container-signin ul li input{width: 100%;color: #616365;border: 1px solid #d1d1d1;padding: 6px 10px;}
+.container-signin ul li.btns{text-align: center;}
+#btnsubmit{width:30%;margin: 10px 0;padding: 10px 25px;text-transform: uppercase;background: #00a651;border: 1px solid #00a651;color: #fff;cursor: pointer;}
+#form-loginsuccees{text-align: center;}
+.login-now a{background-color: #0d6efd;padding: 10px;color: #fff;font-size: 15px;}
+/*Login*/
+#ctn-lg{height: 300px !important;}
+#row-login{height: 300px;}
+.nofollow .fa{padding-right: 10px !important;}
+.col-hidden-login{width: 30%;}
+.container-login{width: 40%;margin: 20px 0;background: #fff;border: 1px solid #dedede;height: 260px;}
+.container-login h6{display: block;text-align: center;padding: 20px 0;text-transform: uppercase;font-size: 23px;font-family: "Avenir 65 Medium",Arial;}
+.container-login ul li{list-style: none;margin-bottom: 15px;}
+.container-login ul li input{width: 100%;color: #616365;border: 1px solid #d1d1d1;padding: 6px 10px;}
+.container-login ul li.btns{text-align: center;}
+#btnsubmit{width:30%;margin: 0;padding: 10px 25px;text-transform: uppercase;background: #00a651;border: 1px solid #00a651;color: #fff;cursor: pointer;}
+/*detailproduct*/
+.container-category{margin: auto;width: 1250px;}
+ul.w3_short li {display: inline-block;text-transform: uppercase;color: #000;font-size: 0.9em;letter-spacing: 1px;}
+.home-category{padding: 0;text-align: center;}
+.home-category ul li i{padding: 0 5px;}
+ul.w3_short {text-align: left;padding: 16px 0;}
+.flexslider{margin: 0 0 60px;padding: 0;background: #fff;border: 4px solid #fff;position: relative;}
+.address{padding: 0 15px;}
+.bottom-dtproduct{padding: 20px 0;}
+.description-dt{position: relative;padding: 0 5px;margin-bottom: 15px;font-weight: 400;}
+.description-dt h2{display: inline-block;line-height: normal;border-bottom: 3px solid #00a651;padding-right: 5px;position: relative;top: 2px;font-weight: 600;text-transform: uppercase;font-size: 18px;margin-right: 10px;line-height: 42px;}
+.content-description{line-height: 25px;display: inline-block;width: 100%;padding: 15px;border: 2px solid darkgrey;}
+
+/**/
+.detail-product{background: #fff;font-size: 17px;font-weight: 400;line-height: 1.5;color: #212529;text-align: left;}
+.container-dtproduct{width: 1250px;margin: 0 auto;padding: 12px 15px 20px 15px;}
+.row-dtproduct{  display: flex;margin-right: -15px;margin-left: -15px;}
+.left-dtproduct{margin: 0;border: 1px solid#cdcac7de;position: relative;width: 45%;padding: 0 15px;display: block;}
+.left-dtproduct .carousel-indicators li{background-color: darkgrey;}
+.carousel-indicators {bottom: -14px !important;}
+.carousel-control-next-icon{background-color: darkgrey;}
+.carousel-control-prev-icon{background-color: darkgrey;}
+.right-dtproduct{width: 50%;margin: 0;position: relative;padding: 0 15px;display: block;}
+.container-inf-dtpr{position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;}
+.container-inf-dtpr h3{color: #000;font-size: 25px;font-family: 'Lato', sans-serif;font-weight: 500;}
+.container-inf-dtpr p{letter-spacing: 1px;font-size: 15px;line-height: 1.9;font-family: 'Open Sans', sans-serif;}
+.inf-dtproduct span{font-size: 18px;color:#d60404;}
+.container-inf-dtpr del{font-size: 15px;color: #999;font-weight: 300 !important;}
+.single-infoagile ul li{display: block;font-size: 17px;margin-bottom: 13px;}
+.fas{padding-right: 10px;color: #00a651;}
+.product-single-w3l ul li{padding-bottom: 5px;}
+.occasion-cart input.dt-button{margin: 10px 0; font-size: 13px;color: #fff;background: #00a651;border-radius: 50px;width:30%;text-transform: uppercase;padding: 13px;outline: none;letter-spacing: 1px;box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.45);font-weight: 1000;border: 1px solid #00a651;}
+.occasion-cart input.dt-button:hover{background: #fff;color: #00a651;}
+/*cart*/
+#body-cart{background: #fff;}
+#container-cart{background: #fff;height: auto;}
+#cartpage{padding-bottom: 10px;background: #fff;height: auto;}
+.page-header{padding-bottom: 9px;margin: 40px 0 20px;border-bottom: 1px solid #eee;font-size: 30px;font-weight: unset;}
+.cart-header-labels{font-weight: 600;height: 45px;margin: 10px 0 15px;text-align: center;border-bottom: 1px solid #e5e5e5;padding: 10px 0;border-top: 1px solid #e5e5e5;}
+.label-item{float:left;padding-right: 15px;padding-left: 15px;position: relative;min-height: 1px;font-size: 15px;}
+.format1{width: 17%;}
+.format2{width: 25%;}
+.format3{width: 7%;}
+.content-cart{font-size: 12px;font-weight: 300;color: #666;max-height: 350px;overflow: auto;padding-left: 10px;}
+.list-product-cart{text-align: center;margin-bottom: 15px;height: 170px;}
+.cart-item-price{font-size: 15px;line-height: 25px;}
+.img-responsive{display: block;max-width: 100%;height: auto;}
+.cart-amountproduct input{width: 48px !important;}
+.list-button-cart{height: 90px;}
+.row-hidden{width: 50%;position: relative;min-height: 1px;padding-right: 15px;padding-left: 15px;}
+.row-totalmoney{margin-bottom: 5px;}
+.buttonright{text-align: right;float: right;}
+.cart-subtotal-title{font-size: 25px;}
+.cart-subtotal-money{font-size: 24px;margin-top: 20px;margin-bottom: 10px;}
+.btn-outline{display: inline-block;vertical-align: middle;padding: 10px 20px;cursor:pointer ;border-radius: 50px;position: relative;border: 1px solid #00a651;white-space: nowrap;margin-bottom: 0;font-weight: 800;text-align: center;background: #00a651;color: #fff;text-transform: uppercase;font-size: 14px;}
+.btn-continuebuy{background: #00a651;color: #fff;}
+.btn-continuebuy:hover{background: #fff;color: #00a651;}
+.btn-pay{background: #fff;color: #00a651;}
+.btn-pay:hover{background: #00a651;color: #fff;}
+.cart_container{height: 500px;overflow: scroll;}
