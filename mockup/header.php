@@ -1,5 +1,6 @@
 <?php
 	// session_start();
+	include("lib_db.php");
 	if(isset($_SESSION['account']))
 	{
 		$email=$_SESSION['account'][0];

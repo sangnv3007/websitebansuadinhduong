@@ -105,15 +105,15 @@ function exec_update($sql){
 	close();
 	return 1;
 }
-// function sql_str($val){
-// 	if($val === 0)  return '0' ;
-// 	if($val === null) {
-// 		return 'NULL';
-// 	}
-// 	global $link;
-// 	if(!$link) connect();
-// 	if (get_magic_quotes_gpc()) {
-// 		return "" . mysqli_real_escape_string($link,stripslashes($val)) . "" ;
-// 	}
-// 	return "" . mysqli_real_escape_string($link,$val)  . "" ;
-// }
+function sql_str($val){
+	if($val === 0)  return '0' ;
+	if($val === null) {
+		return 'NULL';
+	}
+	global $link;
+	if(!$link) connect();
+	if (get_magic_quotes_gpc()) {
+		return "" . mysqli_real_escape_string($link,stripslashes($val)) . "" ;
+	}
+	return "" . mysqli_real_escape_string($link,$val)  . "" ;
+}
