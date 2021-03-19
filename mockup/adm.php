@@ -14,7 +14,7 @@
             echo"Tài khoản không tồn tại";exit();
         }
         else
-        {
+        {//aloấhsh
             if($data['password']!=$pass_employee)
             {
                 echo"Sai mật khẩu !";exit();
