@@ -1,5 +1,5 @@
 <?php
-    include('lib_db.php');
+    include("lib_db.php");
     // ID Nhân viên 	Họ và Tên 	Địa chỉ 	SĐT 	Vị trí 	Email 	Password
     $sql='select * from dtb_employee';
 	$employee=select_list($sql);
@@ -53,7 +53,7 @@
 						<th>Họ và Tên</th>
                         <th>Địa chỉ</th>
                         <th>SĐT</th>
-                        <th>Vị trí</th>
+                        <!-- <th>Vị trí</th> -->
 						<th>Email</th>
 					</tr>
 				</thead>
@@ -71,7 +71,7 @@
 						<td ><?php echo $ep['full_name']; ?></td>
                         <td ><?php echo $ep['address']; ?></td>
                         <td ><?php echo $ep['phone']; ?></td>
-						<td ><?php echo $ep['position']; ?></td>
+
                         <td ><?php echo $ep['email']; ?></td>
 						<td>
 							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Sửa">&#xE254;</i></a>
@@ -123,10 +123,10 @@
 						<label>Số điện thoại</label>
 						<input type="text" class="form-control" name='phone' required>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
 						<label>Vị trí</label>
 						<input type="text" class="form-control" name='location' required>
-                    </div>
+                    </div> -->
                     <div class="form-group">
 						<label>Email</label>
 						<input type="text" class="form-control" name='email' required>
@@ -170,10 +170,10 @@
                             <label>Số điện thoại</label>
                             <input type="text" name="phone" class="form-control phone_edit" required>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Vị trí</label>
                             <input type="text" name="location" class="form-control position_edit" required>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label>Email</label>
                             <input type="text" name="email" class="form-control email_edit" required>
