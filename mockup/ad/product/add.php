@@ -36,14 +36,14 @@ require_once("../../config/config.php");
 
 
 <div class="form-group">
-  <label for="usr">Giá Sản Phẩm Nhập</label>
+  <label for="usr">Giá Sản Phẩm Gốc</label>
   <input type="text" class="form-control" id="usr" name="pricenhap">
 </div>
 
 
 
 <div class="form-group">
-  <label for="usr">Giá Sản Phẩm Bán</label>
+  <label for="usr">Giá Sản Phẩm Sale</label>
   <input type="text" class="form-control" id="usr" name="priceban">
 </div>
 

@@ -40,8 +40,8 @@ if(!empty($_GET['id'])){
 <tr>
 							<th width="100px">STT</th>
 							<th>Tên sản phẩm</th>
-               <th>Giá Nhập</th>
-               <th>Giá Bán</th>
+               <th>Giá Gốc</th>
+               <th>Giá SALE</th>
 						  <th width="50%">Nội Dung </th>
 							<th>Danh Mục </th>
                <th>Thể Loại </th>
