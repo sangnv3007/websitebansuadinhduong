@@ -1,6 +1,9 @@
 <?php
-
+session_start();
 require_once("../../config/config.php");
+if(!isset($_SESSION['update_danhmuc'])){
+  $_SESSION['update_danhmuc']=1;
+}
 
 ?>
 
@@ -37,11 +40,10 @@ require_once("../../config/config.php");
 					<thead>
 						<tr>
 							<th width="100px">STT</th>
-							<th>Tên Danh Mục </th>
+							<th style="width:20%">Tên Danh Mục </th>
               
-							<th>Ngày Thêm</th>
-							<th>WEIGHT</th>
-							<th>Loại</th>
+							<th style="width:70%">Mô Tả </th>
+							
 							<th width="10%"></th>
 							<th width="10%"></th>
               
@@ -49,7 +51,7 @@ require_once("../../config/config.php");
                     </thead>
                     <tbody>
                         <?php 
-                        $sql="select * from dtb_detailproduct";
+                        $sql="select * from danhmuc";
                         $result=select_list($sql);
                         
                            
@@ -60,8 +62,7 @@ require_once("../../config/config.php");
                                 <td>$index</td>
                                 <td><a href='../product/index.php?id=$data[0]''>$data[1]</a></td>
                                 <td>$data[2]</td>
-                                <td>$data[4]</td>
-                                <td>$data[5]</td>
+                                
                                 <td><a href='edit.php?id=$data[0]'><button class='btn btn-warning'>Sửa</button></a></td>
                                 <td><button class='btn btn-danger' onclick='deletecate($data[0])'>Xóa</button></td>
                                 </tr>";
@@ -76,7 +77,16 @@ require_once("../../config/config.php");
 <button class="btn btn-dark"><a href="../../login/process_logout.php">đăng xuất</a> </button>
     </div>
 </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+   
+
+  
+ 
+ 
+
+   
+  
+  </script>
     <script>
 
   function deletecate(id){
@@ -91,5 +101,9 @@ require_once("../../config/config.php");
 
 </script>
 </body>
-
+<script>
+   if( <?php echo $_SESSION["update_danhmuc"];?> == 1){
+    alert("sửa thành công  !")
+  }
+</script>
 </html>

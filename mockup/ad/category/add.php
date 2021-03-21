@@ -24,7 +24,17 @@ require_once("../../config/config.php");
 <div class="form-group">
   <label for="usr">Tên Danh Mục</label>
   <input type="text" class="form-control" id="usr" name="name">
+
 </div>
+
+
+<div class="form-group">
+  <label for="usr">Mô Tả</label>
+  <textarea type="text" class="form-control" id="usr" name="name" cols="30" rows="1"></textarea>
+</div>
+
+
+
 <button class="btn btn-success" type="submit">Thêm </button>
 
 </form>

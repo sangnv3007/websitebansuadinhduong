@@ -1,10 +1,21 @@
 <?php
-
+session_start();
+echo $_SESSION['update_danhmuc'];
 require_once("../../config/config.php");
+if(isset($_GET['id'])){
 
 $id= $_GET['id'];
-$sql="select * from category where id ='$id'";
+$sql="select * from danhmuc where id ='$id'";
 $result=select_one($sql);
+$_SESSION['update_danhmuc']=1;
+}
+else{
+  $id=$_SESSION['iddm'];
+  $sql="select * from danhmuc where id ='$id'";
+$result=select_one($sql);
+
+}
+
 
 ?>
 
@@ -33,6 +44,14 @@ $result=select_one($sql);
   }
   
   ?>'>
+  
+  <div class="form-group">
+  <label for="usr">Mô Tả</label>
+  <textarea class="form-control" rows="6" id="comment" name="mota" > <?php 
+  if($result != null){
+      echo "$result[2]";
+  }?>  </textarea>
+    </div>
 <input type="text" hidden="true" class="form-control" name="id" id="usr" value=' <?php 
   if($result != null){
       echo "$result[0]";
@@ -44,3 +63,11 @@ $result=select_one($sql);
 </form>
 </div>
 </body>
+
+<script>
+  
+  if( <?php echo $_SESSION["update_danhmuc"];?> == 0){
+    alert("kiểm tra thông tin nha !")
+  }
+ 
+</script>

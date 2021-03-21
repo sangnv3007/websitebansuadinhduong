@@ -1,22 +1,36 @@
 <?php
-
+session_start();
 require("../../../config/config.php");
 
-if(isset($_POST['name'])){
+if(!empty($_POST['name'] ) and !empty($_POST['mota'] ) ){
     $name = $_POST['name'];
     $id= $_POST['id'];
-    
-    $sql="update category set name = '$name' where id='$id'";
+    $mota=$_POST['mota'];
+ 
+    $sql="update danhmuc set tenloai = '$name', mota='$mota' where id='$id'";
+    echo $sql;
     $result=execute($sql);
-    $date= date("Y-m-d H:i:s");
-    $sql1="update category set date_update = '$date' where id ='$id'";
-    $result1=execute($sql1);
-    if($result = true && $result== true  ){
+  
+    
+    if($result == true  ){
+        $_SESSION['update_danhmuc']=1;
+        $_SESSION['abc']=1;
         header("Location: ../../../ad/category/index.php");
+
     }
     else{
-        header("Location: ../../../ad/category/index.php");
+        $_SESSION['update_danhmuc']=0;
+        header("Location: ../../../ad/category/edit.php");
     }
 
 }
+else{
+    $_SESSION['update_danhmuc']=0;
+    $_SESSION['iddm']=$_POST['id'];
+    header("Location: ../../../ad/category/edit.php");
+
+}
+
+    
+
 ?>
