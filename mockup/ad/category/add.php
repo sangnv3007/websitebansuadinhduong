@@ -7,6 +7,7 @@ require_once("../../config/config.php");
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,23 +16,28 @@ require_once("../../config/config.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 </head>
+
 <body>
-<div class="container">
-<div class="panel-heading">
-                <h2 class="text-center">Thêm Danh Mục</h2>
-</div>
-<form action="proccess/proccess_add.php" method="POST">
-<div class="form-group">
-  <label for="usr">Tên Danh Mục</label>
-  <input type="text" class="form-control" id="usr" name="name">
-</div>
-<button class="btn btn-success" type="submit">Thêm </button>
+    <style>
+        .btn-successpr{background: green;color: white;}
+    </style>
+    <div class="container">
+        <div class="panel-heading">
+            <h2 class="text-center">Thêm Danh Mục</h2>
+        </div>
+        <form action="proccess/proccess_add.php" method="POST">
+            <div class="form-group">
+                <label for="usr">ID Danh mục</label>
+                <input type="text" class="form-control" id="usr" name="id" placeholder="ID " pattern="\d+" title="ID chỉ được nhập số!" required>
+                <label for="usr">Tên Danh Mục</label>
+                <input type="text" class="form-control" id="usr" name="namepr" placeholder="Tên Danh Mục"  required>
+                <label for="usr">Mô tả</label>
+                <input type="text" class="form-control" id="usr" name="descriptionpr" placeholder="Mô tả"  required>
+            </div>
+            <button class="btn btn-successpr" type="submit">Thêm mới</button>
 
-</form>
-    
-</div>
+        </form>
+
+    </div>
+    <script src="../../js/alert.js"></script>
 </body>
-
-
-
-

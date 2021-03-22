@@ -1,0 +1,15 @@
+21.03.2021 06:06:37 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'1011',n'Sữa Dinh Dưỡng',n'abc')] --> 
+21.03.2021 06:08:06 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'1019',n'Sữa cho trẻ em từ 0-36 Tháng',n'Sữa dinh dưỡng')] --> 
+21.03.2021 07:10:57 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'1013',n'Sữa cho trẻ em từ 0-12 Tháng',n'Sữa dinh dưỡng')] --> 
+21.03.2021 07:11:55 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'1099',n'Sữa Dành cho người bệnh tiểu đường',n'Chuyên dành cho người bệnh tiểu đường')] --> 
+21.03.2021 07:18:34 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'1020',n'Sữa Dành cho người bệnh Gan',n'Mô tả 1')] --> 
+21.03.2021 02:39:33 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'1111',n'Sữa cho trẻ em từ 1 tuổi trở lên',n'Abccccccc')] --> 
+21.03.2021 02:41:44 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'1111',n'Sữa cho trẻ em từ 1 tuổi trở lên',n'Abccccccc')] --> 
+21.03.2021 02:49:39 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'1112',n'Sữa Dành cho người bệnh tim mạch',n'Mô tả ví du')] --> 
+21.03.2021 02:51:18 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'1113',n'Sữa cho trẻ em từ 12-36 Tháng',n'Mô tả ví du')] --> 
+21.03.2021 02:58:38 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'10111',n'Sữa Dành cho người bệnh Thận',n'Mô tả ví du')] --> 
+21.03.2021 03:00:53 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'101111',n'Sữa Dinh Dưỡng 1',n'Mô tả ví du')] --> 
+21.03.2021 03:05:57 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'1011111',n'Sữa Dinh Dưỡng 11',n'abc')] --> 
+21.03.2021 03:08:20 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'1011111',n'Sữa Dinh Dưỡng11',n'abc')] --> 
+21.03.2021 03:09:26 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'10111',n'Sữa Dinh Dưỡng11',n'Sữa dinh dưỡng')] --> 
+21.03.2021 03:14:08 <!-- sql=[insert into danhmuc (id,TenLoai,MoTa) values (n'1',n'Sữa cho trẻ em từ 10 tuổi trở lên',n'sa')] --> 

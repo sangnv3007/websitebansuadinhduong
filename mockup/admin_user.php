@@ -59,19 +59,11 @@
 				</thead>
 				<tbody class="view">
                     <?php foreach($employee as $ep){ ?>
-                    <!-- start -->
 					<tr>
-						<!-- <td>
-							<span class="custom-checkbox">
-								<input type="checkbox" id="checkbox1" name="options[]" value="1">
-								<label for="checkbox1"></label>
-							</span>
-						</td> -->
 						<td ><?php echo $ep['id']; ?></td>
 						<td ><?php echo $ep['full_name']; ?></td>
                         <td ><?php echo $ep['address']; ?></td>
                         <td ><?php echo $ep['phone']; ?></td>
-
                         <td ><?php echo $ep['email']; ?></td>
 						<td>
 							<a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Sửa">&#xE254;</i></a>

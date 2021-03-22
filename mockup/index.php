@@ -2,14 +2,14 @@
 	session_start();
 	// session_destroy();
 	include("lib_db.php");
-	$sp="Select * from dtb_product";
-	$hangkhuyenmai="Select * from dtb_product where id_type=1001 limit 5";
-	$suadactri="Select * from dtb_product where id_type=1002 limit 5";
-	$suatangcan="Select * from dtb_product where id_type=1003 limit 5";
-	$tpcn="Select * from dtb_product where id_type=1004 limit 5";
-	$suanon="Select * from dtb_product where id_type=1000 limit 10";
-	$suanhapkhau="Select * from dtb_product where id_type=1005 limit 10";
-	$bim="Select * from dtb_product where id_type=1006 limit 10";
+	$sp="Select * from SANPHAM";
+	$hangkhuyenmai="Select * from SANPHAM where IdDM=1001 limit 5";
+	$suadactri="Select * from SANPHAM where IdDM=1002 limit 5";
+	$suatangcan="Select * from SANPHAM where IdDM=1003 limit 5";
+	$tpcn="Select * from SANPHAM where IdDM=1004 limit 5";
+	$suanon="Select * from SANPHAM where IdDM=1000 limit 10";
+	$suanhapkhau="Select * from SANPHAM where IdDM=1005 limit 10";
+	$bim="Select * from SANPHAM where IdDM=1006 limit 10";
 	$row_product1=select_list($hangkhuyenmai);
 	$row_product2=select_list($suadactri);
 	$row_product3=select_list($suatangcan);
@@ -21,14 +21,14 @@
 	{
 		$email=$_SESSION['account'][0];
 		$password=$_SESSION['account'][1];
-		$sql="Select full_name from dtb_customer where email='$email' and password='$password'";
+		$sql="Select HoTen from KHACHHANG where email='$email' and password='$password'";
 		$fullname=select_one($sql);
 	}
 	if(isset($_SESSION['user']))
 	{
-		$email=$_SESSION['user']['email'];
-		$password=$_SESSION['user']['password'];
-		$sql="Select full_name from dtb_customer where email='$email' and password='$password'";
+		$email=$_SESSION['user']['Email'];
+		$password=$_SESSION['user']['PassWord'];
+		$sql="Select HoTen from KHACHHANG where Email='$email' and PassWord='$password'";
 		$fullname=select_one($sql);
 	}
 ?>
@@ -258,7 +258,7 @@
 									<li class="login-method">
 										<a class="login" href="" title="Đăng nhập">
 											<i class="fas fa-user-circle"></i>
-											<?php echo "Xin chào: " .$fullname["full_name"]?>
+											<?php echo "Xin chào: " .$fullname["HoTen"]?>
 										</a>
 									</li>
 									<li class="login-method">
@@ -459,20 +459,20 @@
 				<div class="col-md-3 col-sm-6">
 					<div class="product-grid6">
 						<div class="product-image6">
-							<a href="detailproduct.php?id=<?php echo $product["id"]?>">
-								<img class="pic-1" src="<?php echo explode('||',$product["image_product"])[0];?>">
+							<a href="detailproduct.php?id=<?php echo $product["Id"]?>">
+								<img class="pic-1" src="<?php echo explode('||',$product["AnhSP"])[0];?>">
 							</a>
 						</div>
 						<div class="product-content">
-							<h3 class="title"><a href="#"><?php echo ($product["name"]);?></a></h3>
-							<div class="price"><?php echo ($product["promotion_price"]);?>
-								<span><?php echo ($product["unit_price"]);?></span>
+							<h3 class="title"><a href="#"><?php echo ($product["TenSP"]);?></a></h3>
+							<div class="price"><?php echo ($product["GiaKM"]);?>
+								<span><?php echo ($product["GiaCT"]);?></span>
 							</div>
 						</div>
 						<ul class="social">
 							<li><a href="" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
-							<li><a href="detailproduct.php?id=<?php echo $product["id"]?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
-							<li><a  class="add_cart" name="<?php echo $product["id"]?>" data-tip="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a></li>
+							<li><a href="detailproduct.php?id=<?php echo $product["Id"]?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
+							<li><a  class="add_cart" name="<?php echo $product["Id"]?>" data-tip="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a></li>
 						</ul>
 					</div>
 				</div>
@@ -489,19 +489,19 @@
 				<div class="col-md-3 col-sm-6">
 					<div class="product-grid6">
 						<div class="product-image6">
-							<a href="detailproduct.php?id=<?php echo $product["id"]?>">
-								<img class="pic-1" src="<?php echo explode('||',$product["image_product"])[0];?>">
+							<a href="detailproduct.php?id=<?php echo $product["Id"]?>">
+								<img class="pic-1" src="<?php echo explode('||',$product["AnhSP"])[0];?>">
 							</a>
 						</div>
 						<div class="product-content">
-							<h3 class="title"><a href="#"><?php echo ($product["name"]);?></a></h3>
-							<div class="price"><?php echo ($product["promotion_price"]);?>
-								<span><?php echo ($product["unit_price"]);?></span>
+							<h3 class="title"><a href="#"><?php echo ($product["TenSP"]);?></a></h3>
+							<div class="price"><?php echo ($product["GiaKM"]);?>
+								<span><?php echo ($product["GiaCT"]);?></span>
 							</div>
 						</div>
 						<ul class="social">
 							<li><a href="" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
-							<li><a href="detailproduct.php?id=<?php echo $product["id"]?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
+							<li><a href="detailproduct.php?id=<?php echo $product["Id"]?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
 							<li><a  class="add_cart" data-tip="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a></li>
 						</ul>
 					</div>
@@ -519,19 +519,19 @@
 				<div class="col-md-3 col-sm-6">
 					<div class="product-grid6">
 						<div class="product-image6">
-							<a href="detailproduct.php?id=<?php echo $product["id"];?>">
-								<img class="pic-1" src="<?php echo explode('||',$product["image_product"])[0];?>">
+							<a href="detailproduct.php?id=<?php echo $product["Id"];?>">
+								<img class="pic-1" src="<?php echo explode('||',$product["AnhSP"])[0];?>">
 							</a>
 						</div>
 						<div class="product-content">
-							<h3 class="title"><a href="#"><?php echo ($product["name"]);?></a></h3>
-							<div class="price"><?php echo ($product["promotion_price"]);?>
-								<span><?php echo ($product["unit_price"]);?></span>
+							<h3 class="title"><a href="#"><?php echo ($product["TenSP"]);?></a></h3>
+							<div class="price"><?php echo ($product["GiaKM"]);?>
+								<span><?php echo ($product["GiaCT"]);?></span>
 							</div>
 						</div>
 						<ul class="social">
 							<li><a href="" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
-							<li><a href="detailproduct.php?id=<?php echo $product["id"];?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
+							<li><a href="detailproduct.php?id=<?php echo $product["Id"];?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
 							<li><a class="add_cart" data-tip="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a></li>
 						</ul>
 					</div>
@@ -548,19 +548,19 @@
 				<div class="col-md-3 col-sm-6">
 					<div class="product-grid6">
 						<div class="product-image6">
-							<a href="detailproduct.php?id=<?php echo $product["id"];?>">
-								<img class="pic-1" src="<?php echo explode('||',$product["image_product"])[0];?>">
+							<a href="detailproduct.php?id=<?php echo $product["Id"];?>">
+								<img class="pic-1" src="<?php echo explode('||',$product["AnhSP"])[0];?>">
 							</a>
 						</div>
 						<div class="product-content">
-							<h3 class="title"><a href="#"><?php echo $product["name"];?></a></h3>
-							<div class="price"><?php echo ($product["promotion_price"]);?>
-								<span><?php echo ($product["unit_price"]);?></span>
+							<h3 class="title"><a href="#"><?php echo $product["TenSP"];?></a></h3>
+							<div class="price"><?php echo ($product["GiaKM"]);?>
+								<span><?php echo ($product["GiaCT"]);?></span>
 							</div>
 						</div>
 						<ul class="social">
 							<li><a href="" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
-							<li><a href="detailproduct.php?id=<?php echo $product["id"];?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
+							<li><a href="detailproduct.php?id=<?php echo $product["Id"];?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
 							<li><a  class="add_cart" data-tip="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a></li>
 						</ul>
 					</div>
@@ -577,19 +577,19 @@
 				<div class="col-md-3 col-sm-6">
 					<div class="product-grid6">
 						<div class="product-image6">
-							<a href="detailproduct.php?id=<?php echo $product["id"];?>">
-								<img class="pic-1" src="<?php echo explode('||',$product["image_product"])[0];?>">
+							<a href="detailproduct.php?id=<?php echo $product["Id"];?>">
+								<img class="pic-1" src="<?php echo explode('||',$product["AnhSP"])[0];?>">
 							</a>
 						</div>
 						<div class="product-content">
-							<h3 class="title"><a href="#"><?php echo $product["name"];?></a></h3>
-							<div class="price"><?php echo $product["promotion_price"];?>
-								<span><?php echo $product["unit_price"];?></span>
+							<h3 class="title"><a href="#"><?php echo $product["TenSP"];?></a></h3>
+							<div class="price"><?php echo $product["GiaKM"];?>
+								<span><?php echo $product["GiaCT"];?></span>
 							</div>
 						</div>
 						<ul class="social">
 							<li><a href="" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
-							<li><a href="detailproduct.php?id=<?php echo $product["id"];?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
+							<li><a href="detailproduct.php?id=<?php echo $product["Id"];?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
 							<li><a  class="add_cart" data-tip="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a></li>
 						</ul>
 					</div>
@@ -606,19 +606,19 @@
 				<div class="col-md-3 col-sm-6">
 					<div class="product-grid6">
 						<div class="product-image6">
-							<a href="detailproduct.php?id=<?php echo $product["id"];?>">
-								<img class="pic-1" src="<?php echo explode('||',$product["image_product"])[0];?>">
+							<a href="detailproduct.php?id=<?php echo $product["Id"];?>">
+								<img class="pic-1" src="<?php echo explode('||',$product["AnhSP"])[0];?>">
 							</a>
 						</div>
 						<div class="product-content">
-							<h3 class="title"><a href="#"><?php echo $product["name"];?></a></h3>
-							<div class="price"><?php echo $product["promotion_price"];?>
-								<span><?php echo $product["unit_price"];?></span>
+							<h3 class="title"><a href="#"><?php echo $product["TenSP"];?></a></h3>
+							<div class="price"><?php echo $product["GiaKM"];?>
+								<span><?php echo $product["GiaCT"];?></span>
 							</div>
 						</div>
 						<ul class="social">
 							<li><a href="" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
-							<li><a href="detailproduct.php?id=<?php echo $product["id"];?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
+							<li><a href="detailproduct.php?id=<?php echo $product["Id"];?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
 							<li><a class="add_cart"  data-tip="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a></li>
 						</ul>
 					</div>
@@ -635,19 +635,19 @@
 				<div class="col-md-3 col-sm-6">
 					<div class="product-grid6">
 						<div class="product-image6">
-							<a href="detailproduct.php?id=<?php echo $product["id"];?>">
-								<img class="pic-1" src="<?php echo explode('||',$product["image_product"])[0];?>">
+							<a href="detailproduct.php?id=<?php echo $product["Id"];?>">
+								<img class="pic-1" src="<?php echo explode('||',$product["AnhSP"])[0];?>">
 							</a>
 						</div>
 						<div class="product-content">
-							<h3 class="title"><a href="#"><?php echo $product["name"];?></a></h3>
-							<div class="price"><?php echo $product["promotion_price"];?>
-								<span><?php echo $product["unit_price"];?></span>
+							<h3 class="title"><a href="#"><?php echo $product["TenSP"];?></a></h3>
+							<div class="price"><?php echo $product["GiaKM"];?>
+								<span><?php echo $product["GiaCT"];?></span>
 							</div>
 						</div>
 						<ul class="social">
 							<li><a href="" data-tip="Xem nhanh"><i class="fa fa-search"></i></a></li>
-							<li><a href="detailproduct.php?id=<?php echo $product["id"];?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
+							<li><a href="detailproduct.php?id=<?php echo $product["Id"];?>" data-tip="Xem chi tiết"><i class="fas fa-eye"></i></a></li>
 							<li><a  class="add_cart" data-tip="Thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a></li>
 						</ul>
 					</div>

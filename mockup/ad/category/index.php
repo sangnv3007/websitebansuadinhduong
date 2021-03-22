@@ -1,95 +1,75 @@
 <?php
-
-require_once("../../config/config.php");
-
+require("../../lib_db.php");
+$sql="select * from DANHMUC";
+$result=select_list($sql);  
 ?>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-
+    <meta http-equiv="Content-Type" content="text/shtml; charset=utf-8" />
+    <title>Quản lý sản phẩm</title>
+    <link type="text/css" href="../../bootstrap-5.0.0-beta1-dist/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 </head>
+
 <body>
-<div class="container ">
-    <div class="container pt-3">
-<ul class="nav nav-pills">
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="pill" href="index.php">quản lí danh mục</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="pill" href="../product/index.php">quản lí sản phẩm </a>
-  </li>
-  
-</ul>
-</div>
+  <style>
+    #add_category{background: green;}
+    #add_category a{color: white;text-decoration: none;}
+    #des {text-align: center;}
+  </style>
+    <div class="container ">
+        <div class="container pt-3">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="pill" href="index.php">Quản lý danh mục</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="../product/index.php">Quản lý sản phẩm </a>
+                </li>
+            </ul>
+        </div>
 
-<div class="panel-heading">
-                <h2 class="text-center">Thêm/Sửa/Xóa Danh Mục</h2>
-</div>
-<div class="panel-body">
+        <div class="panel-heading">
+            <h2 class="text-center">Quản lý Danh Mục</h2>
+        </div>
+        <div class="panel-body">
 
-<button class="btn btn-success"><a href="add.php">thêm danh mục</a> </button>
-<table class="table table-bordered table-hover">
-					<thead>
-						<tr>
-							<th width="100px">STT</th>
-							<th>Tên Danh Mục </th>
-              
-							<th>Ngày Thêm</th>
-							<th>WEIGHT</th>
-							<th>Loại</th>
-							<th width="10%"></th>
-							<th width="10%"></th>
-              
-						</tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                        $sql="select * from dtb_detailproduct";
-                        $result=select_list($sql);
-                        
-                           
-                            $index=1;
-                            foreach($result as $data){
-                                echo "<tr data-id='$data[0]'>
-                                
-                                <td>$index</td>
-                                <td><a href='../product/index.php?id=$data[0]''>$data[1]</a></td>
-                                <td>$data[2]</td>
-                                <td>$data[4]</td>
-                                <td>$data[5]</td>
-                                <td><a href='edit.php?id=$data[0]'><button class='btn btn-warning'>Sửa</button></a></td>
-                                <td><button class='btn btn-danger' onclick='deletecate($data[0])'>Xóa</button></td>
-                                </tr>";
-                                $index++;
-                            }
-                        
-                        
-                        ?>                     
-                       
-                    </tbody>
-</table>
-<button class="btn btn-dark"><a href="../../login/process_logout.php">đăng xuất</a> </button>
-    </div>
-</div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-
-  function deletecate(id){
-    var option=confirm("bạn có muốn xóa danh mục này ?")
-    if(!option){
-      return
-    }
-   
-  $.post('ajax.php',{'id' : id,'action' : 'delete'},function(data) {  $(`[data-id=${id}]`).remove();
-})
-  }
-
-</script>
+            <button class="btn btn-success" id="add_category"><a href="add.php">Thêm danh mục</a> </button>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>ID Danh Mục </th>
+                        <th>Tên Danh Mục</th>
+                        <th id="des">Mô tả</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php   
+                $index=1;                                            
+                foreach($result as $danhmuc) {?>
+                    <tr>
+                        <td><?php echo $index ;?></td>
+                        <td><?php echo $danhmuc['Id']; ?></td>
+                        <td><?php echo $danhmuc['TenLoai']; ?></td>
+                        <td><?php echo $danhmuc['MoTa']; ?></td>
+                        <?php $index++;}?>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- <button class="btn btn-dark"><a href="../../login/process_logout.php">đăng xuất</a> </button> -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <!-- <script>
+            swal({
+                title: "Thêm thành công!",
+                text: "Bạn vừa nhấn vào nút thêm!",
+                icon: "success",
+                button: "OK",
+            });
+            </script> -->
 </body>
 
 </html>

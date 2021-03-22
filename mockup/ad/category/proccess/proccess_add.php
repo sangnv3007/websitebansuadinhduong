@@ -1,17 +1,16 @@
 <?php
 
-require("../../../config/config.php");
-
-if(isset($_POST['name'])){
-    $name = $_POST['name'];
-    $date= date("Y-m-d H:i:s");
-    $sql="insert into category(name, date_add, date_update) values ('$name', '$date','')";
-    $result=execute($sql);
-    if($result){
-        header("Location: ../../../ad/category/index.php");    }
-        else{
-            echo 111;
-        }
-
+require("../../../lib_db.php");
+if(!empty($_POST["namepr"]) and !empty($_POST["descriptionpr"]) and !empty($_POST["id"])){
+    $id = $_POST["id"];
+    $name = $_POST["namepr"];
+    $description=$_POST["descriptionpr"];
+    $array=array('id'=>$id,'TenLoai'=>$name,'MoTa'=>$description);
+    $data=data_to_sql_insert('danhmuc',$array);
+    exec_update($data);
+    header("Location: ../../../ad/category/index.php");
+}
+else{
+    echo 1;
 }
 ?>

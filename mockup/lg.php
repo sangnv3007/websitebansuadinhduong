@@ -7,10 +7,11 @@
         $password=$_SESSION['account'][1];
         if($email!='' && $password!='')
         {
-            $sql="Select * from dtb_customer where email='$email' and password='$password'";
+            $sql="Select * from KHACHHANG where email='".$email."' and password='".$password."'";
             $user=select_one($sql);
             if(isset($user))
             {
+                echo $user;
                 $_SESSION['user']=$user;
                 header("location: index.php");
             }
@@ -28,7 +29,7 @@
         $password=$_POST['passWord'];
         if($email!='' && $password!='')
         {
-            $sql="Select * from dtb_customer where email='$email'";
+            $sql="Select * from KHACHHANG where Email='".$email."'";
             $user=select_one($sql);
             if(isset($user))
             {

@@ -5,14 +5,14 @@
 	{
 		$email=$_SESSION['account'][0];
 		$password=$_SESSION['account'][1];
-		$sql="Select full_name from dtb_customer where email='$email' and password='$password'";
+		$sql="Select HoTen from KHACHHANG where email='$email' and password='$password'";
 		$fullname=select_one($sql);
 	}
 	if(isset($_SESSION['user']))
 	{
 		$email=$_SESSION['user']['email'];
 		$password=$_SESSION['user']['password'];
-		$sql="Select full_name from dtb_customer where email='$email' and password='$password'";
+		$sql="Select HoTen from KHACHHANG where email='$email' and password='$password'";
 		$fullname=select_one($sql);
 	}
 ?>
