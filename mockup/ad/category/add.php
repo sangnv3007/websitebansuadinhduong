@@ -16,7 +16,6 @@ require_once("../../config/config.php");
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 </head>
-
 <body>
     <style>
         .btn-successpr{background: green;color: white;}

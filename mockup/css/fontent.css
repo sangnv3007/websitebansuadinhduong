@@ -59,7 +59,7 @@ ul.w3_short {text-align: left;padding: 16px 0;}
 .single-infoagile ul li{display: block;font-size: 17px;margin-bottom: 13px;}
 .fas{padding-right: 10px;color: #00a651;}
 .product-single-w3l ul li{padding-bottom: 5px;}
-.occasion-cart input.dt-button{margin: 10px 0; font-size: 13px;color: #fff;background: #00a651;border-radius: 50px;width:30%;text-transform: uppercase;padding: 13px;outline: none;letter-spacing: 1px;box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.45);font-weight: 1000;border: 1px solid #00a651;}
+.occasion-cart input.dt-button{margin: 10px 0; font-size: 13px;color: #fff;background: #070707;border-radius: 50px;width:30%;text-transform: uppercase;padding: 13px;outline: none;letter-spacing: 1px;box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.45);font-weight: 1000;border: 1px solid #00a651;}
 .occasion-cart input.dt-button:hover{background: #fff;color: #00a651;}
 /*cart*/
 #body-cart{background: #fff;}

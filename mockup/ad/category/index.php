@@ -1,7 +1,7 @@
 <?php
 require("../../lib_db.php");
 $sql="select * from DANHMUC";
-$result=select_list($sql);  
+$result=select_list($sql); 
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -13,7 +13,6 @@ $result=select_list($sql);
     <title>Quản lý sản phẩm</title>
     <link type="text/css" href="../../bootstrap-5.0.0-beta1-dist/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 </head>
-
 <body>
   <style>
     #add_category{background: green;}
@@ -71,5 +70,9 @@ $result=select_list($sql);
             });
             </script> -->
 </body>
-
+<script>
+   if( <?php echo $_SESSION["update_danhmuc"];?> == 1){
+    alert("sửa thành công  !")
+  }
+</script>
 </html>

@@ -40,7 +40,7 @@ $page=$_GET['page'];
 
 
     <div class="form-group">
-  <label for="usr">Giá Sản Phẩm Nhập :</label>
+  <label for="usr">Giá Sản Phẩm Bán :</label>
   <input type="text" class="form-control" name="pricenhap" id="usr" value=' <?php 
   if($result != null){
       echo "$result[4]";
@@ -48,7 +48,7 @@ $page=$_GET['page'];
     </div>
 
     <div class="form-group">
-  <label for="usr">Giá Sản Phẩm Bán :</label>
+  <label for="usr">Giá Sản Phẩm Gốc :</label>
   <input type="text" class="form-control" name="priceban" id="usr" value=' <?php 
   if($result != null){
       echo "$result[3]";
