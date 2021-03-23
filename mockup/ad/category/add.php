@@ -26,12 +26,10 @@ require_once("../../config/config.php");
         </div>
         <form action="proccess/proccess_add.php" method="POST">
             <div class="form-group">
-                <label for="usr">ID Danh mục</label>
-                <input type="text" class="form-control" id="usr" name="id" placeholder="ID " pattern="\d+" title="ID chỉ được nhập số!" required>
                 <label for="usr">Tên Danh Mục</label>
-                <input type="text" class="form-control" id="usr" name="namepr" placeholder="Tên Danh Mục"  required>
+                <input type="text" class="form-control" id="usr" name="namepr" placeholder="Tên Danh Mục" required>
                 <label for="usr">Mô tả</label>
-                <input type="text" class="form-control" id="usr" name="descriptionpr" placeholder="Mô tả"  required>
+                <input type="text" class="form-control" id="usr" name="descriptionpr" placeholder="Mô tả" required>
             </div>
             <button class="btn btn-successpr" type="submit">Thêm mới</button>
 
