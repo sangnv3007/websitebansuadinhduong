@@ -1,13 +1,14 @@
 <?php
 require_once("../../config/config.php");
 session_start();
-
+$_SESSION['edit_sanpham']=-1;
 
 
 $id= $_GET['id'];
-$sql="select * from dtb_product  where id ='$id'";
+$sql="select * from sanpham  where id ='$id'";
 $result=select_one($sql);
 $page=$_GET['page'];
+
 
 
 ?>
@@ -31,7 +32,7 @@ $page=$_GET['page'];
     <form action="proccess/proccess_edit.php" method="POST">
     <div class="form-group">
   <label for="usr">Tên Sản Phẩm:</label>
-  <input type="text" class="form-control" name="name" id="usr" value=' <?php 
+  <input type="text" class="form-control" name="tensp" id="usr" value=' <?php 
   if($result != null){
       echo "$result[2]";
   }?>'>
@@ -41,7 +42,7 @@ $page=$_GET['page'];
 
     <div class="form-group">
   <label for="usr">Giá Sản Phẩm Bán :</label>
-  <input type="text" class="form-control" name="pricenhap" id="usr" value=' <?php 
+  <input type="text" class="form-control" name="giact" id="usr" value=' <?php 
   if($result != null){
       echo "$result[4]";
   }?>'>
@@ -49,7 +50,7 @@ $page=$_GET['page'];
 
     <div class="form-group">
   <label for="usr">Giá Sản Phẩm Gốc :</label>
-  <input type="text" class="form-control" name="priceban" id="usr" value=' <?php 
+  <input type="text" class="form-control" name="giakm" id="usr" value=' <?php 
   if($result != null){
       echo "$result[3]";
   }?>'>
@@ -57,29 +58,9 @@ $page=$_GET['page'];
 
     <div class="form-group">
   <label for="usr">Danh Mục</label>
-  <select class="form-control" name="iddetail">
+  <select class="form-control" name="iddm">
  <?php 
- $sql1="select * from dtb_detailproduct";
- $result1=select_list($sql1);
-if($result1 !=null){
-    foreach($result1 as $data1){
-        if($result[7] == $data1[0]){
-
-            echo " <option selected value='$data1[0]'> $data1[1]</option>";
-        }
-        else
-        echo " <option  value='$data1[0]'> $data1[1]</option>";
-    }
-}?>
-</select>
-</div>
-
-
-<div class="form-group">
-  <label for="usr">Thể Loại</label>
-  <select class="form-control" name="idtype">
- <?php 
- $sql1="select * from dtb_typeproduct";
+ $sql1="select * from danhmuc";
  $result1=select_list($sql1);
 if($result1 !=null){
     foreach($result1 as $data1){
@@ -94,7 +75,24 @@ if($result1 !=null){
 </select>
 </div>
 
-<?php  $img = explode("||",$result[5])?> 
+
+  
+<div class="form-group">
+  <label for="usr">Thương Hiệu</label>
+  <input type="text" class="form-control" name="thuonghieu" id="usr" value=' <?php 
+  if($result != null){
+      echo "$result[6]";
+  }?>'>
+    </div>
+
+
+
+
+
+
+
+
+<?php   $img = explode("||",$result[5])?> 
 
 
     <div class="form-group">
@@ -134,14 +132,36 @@ if($result1 !=null){
 
 
 
-  <div class="form-group">
-  <label for="usr">Nội Dung</label>
-  <textarea class="form-control" rows="5" id="comment" name="content" > <?php 
+<div class="form-group">
+  <label for="usr">Đối Tượng Sử Dụng :</label>
+  <input type="text" class="form-control" name="doituong" id="usr" value=' <?php 
   if($result != null){
-      echo "$result[6]";
+      echo "$result[7]";
+  }?>'>
+    </div>
+
+
+
+
+  <div class="form-group">
+  <label for="usr">Mô Tả </label>
+  <textarea class="form-control" rows="5" id="mota" name="mota" > <?php 
+  if($result != null){
+      echo "$result[8]";
   }?>  </textarea>
     </div>
 <button class="btn btn-success" type="submit">Sửa Sản Phẩm</button>
 </form>
 </div>
+
+<?php if($_SESSION['edit_sanpham'] == 10 ) {
+  echo"
+  <div class='panel-heading'>
+  <h2 class='text-center' style='color=red'>Nhập đủ thông tin</h2>
+</div>
+
+";
+}?>
+
 </body>
+

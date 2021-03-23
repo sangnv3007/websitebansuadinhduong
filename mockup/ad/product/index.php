@@ -7,7 +7,9 @@ if(!empty($_GET['id'])){
   
 }
 ?>
-
+<script>
+  if(<?php ?>)
+</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,12 +42,16 @@ if(!empty($_GET['id'])){
 <tr>
 							<th width="100px">STT</th>
 							<th>Tên sản phẩm</th>
-               <th>Giá Gốc</th>
-               <th>Giá SALE</th>
-						  <th width="50%">Nội Dung </th>
-							<th>Danh Mục </th>
-               <th>Thể Loại </th>
-              <th>Link Ảnh</th>
+              <th>Tên Danh Mục </th>
+               <th>Giá Công Ty </th>
+               <th>Giá Khách Hàng </th>
+               <th style="width:10%"> Ảnh Sản Phẩm </th>
+               <th>Thương Hiệu </th>
+               
+               <th>Đối Tượng</th>
+						  <th>Mô Tả  </th>
+						
+              
 							<th width="7%"></th>
 							<th width="7%"></th>
               
@@ -66,23 +72,21 @@ $firstindex=($page -1) * $limit;
     
     if(empty($_GET['id'])){
       $_SESSION['id']=null;
-      $sql="select sanpham.id, sanpham.tenSP, sanpham.giaCT, sanpham.giaKM,sanpham.motaSP,danhmuc.tenloai,
-       sanpham.thuonghieu,sanpham.anhsp from sanpham, danhmuc where sanpham.iddm = danhmuc.id limit  $firstindex  ,$limit ";
-      // $sql="select dtb_product.id,dtb_product.name,dtb_product.unit_price,dtb_product.promotion_price,
-      // dtb_product.description_product,dtb_detailproduct.user_object,dtb_typeproduct.name_type,dtb_product.image_product from dtb_product,dtb_detailproduct  
-      // , dtb_typeproduct where dtb_product.id_detailproduct = dtb_detailproduct.id  and dtb_typeproduct.id = dtb_product.id_type  limit $firstindex  ,$limit";
+      $sql="select sanpham.id,sanpham.tensp, danhmuc.TenLoai, sanpham.giaCT, sanpham.giaKM,
+      sanpham.anhSP,sanpham.thuonghieu,sanpham.tensp,sanpham.tensp,sanpham.doituongSD,sanpham.motasp
+       from sanpham, danhmuc where sanpham.iddm = danhmuc.id limit  $firstindex , $limit ";
+      
     $sqlcount="select count(id) as total from sanpham ";
     }else{
       $_SESSION['id']=$id;
-      $sql="select sanpham.id, sanpham.tenSP, sanpham.giaCT, sanpham.giaKM,sanpham.motaSP,danhmuc.tenloai,
-      sanpham.thuonghieu,sanpham.anhsp from sanpham, danhmuc where sanpham.iddm = danhmuc.id limit  $firstindex  ,$limit and  sanpham.idDM=$id";
-      // $sql="select dtb_product.id,dtb_product.name,dtb_product.unit_price,dtb_product.promotion_price,
-      // dtb_product.description_product,dtb_detailproduct.user_object,dtb_typeproduct.name_type,dtb_product.image_product from dtb_product,dtb_detailproduct  
-      // , dtb_typeproduct where dtb_product.id_detailproduct = dtb_detailproduct.id  and dtb_typeproduct.id = dtb_product.id_type  and id_detailproduct=$id limit $firstindex  ,$limit";
-
+      $sql="select sanpham.id,sanpham.tensp, danhmuc.TenLoai, sanpham.giaCT, sanpham.giaKM,
+      sanpham.anhSP,sanpham.thuonghieu,sanpham.NSX,sanpham.HSD,sanpham.doituongSD,sanpham.motasp
+       from sanpham, danhmuc where sanpham.iddm = danhmuc.id limit  $firstindex  ,$limit and  sanpham.idDM=$id";
+     
       
-       $sqlcount="select count(id) as total from sanpham where id_DM=$id";
+       $sqlcount="select count(id) as total from sanpham where idDM=$id";
     }
+   
     $result=select_list($sql);
   
 
@@ -95,12 +99,15 @@ foreach($result as $data){
   echo " <tr data-id='$data[0]'>
     <td >$firstindex</td>
     <td>$data[1]</td>
-    <td>$data[3]</td>
     <td>$data[2]</td>
+    <td>$data[3]</td>
     <td>$data[4]</td>
     <td>$data[5]</td>
     <td>$data[6]</td>
-    <td>$data[7]</td>
+    
+    <td>$data[9]</td>
+    <td>$data[10]</td>
+    
     
 
     
