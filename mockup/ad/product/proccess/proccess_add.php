@@ -4,8 +4,8 @@ require("../../../config/config.php");
 
 
 if(!empty($_POST["tensp"]) and !empty($_POST["giact"]) and !empty($_POST["giakm"])and !empty($_POST["mota"]) 
-and !empty($_POST["image1"]) and !empty($_POST["thuonghieu"]) and !empty($_POST["doituong"]) 
-and !empty($_POST["iddm"] and is_int($_POST['giact']) and is_int($_POST['giakm'])  )
+and !empty($_POST["image1"]) and !empty($_POST["thuonghieu"]) 
+and !empty($_POST["iddm"] and !is_int($_POST['giact']) and !is_int($_POST['giakm'])  )
 
 
 ){
