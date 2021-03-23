@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th3 22, 2021 lúc 05:24 PM
--- Phiên bản máy phục vụ: 5.7.31
--- Phiên bản PHP: 7.3.21
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th3 23, 2021 lúc 07:22 AM
+-- Phiên bản máy phục vụ: 10.4.17-MariaDB
+-- Phiên bản PHP: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,12 +27,10 @@ SET time_zone = "+00:00";
 -- Cấu trúc bảng cho bảng `danhmuc`
 --
 
-DROP TABLE IF EXISTS `danhmuc`;
-CREATE TABLE IF NOT EXISTS `danhmuc` (
+CREATE TABLE `danhmuc` (
   `Id` int(10) UNSIGNED NOT NULL,
   `TenLoai` varchar(100) NOT NULL,
-  `MoTa` longtext,
-  PRIMARY KEY (`Id`)
+  `MoTa` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -60,16 +58,14 @@ INSERT INTO `danhmuc` (`Id`, `TenLoai`, `MoTa`) VALUES
 -- Cấu trúc bảng cho bảng `khachhang`
 --
 
-DROP TABLE IF EXISTS `khachhang`;
-CREATE TABLE IF NOT EXISTS `khachhang` (
-  `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `khachhang` (
+  `Id` int(10) UNSIGNED NOT NULL,
   `HoTen` varchar(50) NOT NULL,
   `SoDT` varchar(10) NOT NULL,
   `DiaChi` varchar(50) DEFAULT NULL,
   `Email` varchar(50) NOT NULL,
-  `PassWord` varchar(50) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+  `PassWord` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `khachhang`
@@ -91,23 +87,21 @@ INSERT INTO `khachhang` (`Id`, `HoTen`, `SoDT`, `DiaChi`, `Email`, `PassWord`) V
 -- Cấu trúc bảng cho bảng `nhanvien`
 --
 
-DROP TABLE IF EXISTS `nhanvien`;
-CREATE TABLE IF NOT EXISTS `nhanvien` (
-  `Id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `nhanvien` (
+  `Id` int(6) UNSIGNED NOT NULL,
   `HoTen` varchar(50) NOT NULL,
   `DiaChi` varchar(50) DEFAULT NULL,
   `SoDT` varchar(10) DEFAULT NULL,
-  `ViTri` varchar(20) NOT NULL,
+  `ChucVu` varchar(20) NOT NULL,
   `Email` varchar(50) NOT NULL,
-  `PassWord` varchar(50) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  `PassWord` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `nhanvien`
 --
 
-INSERT INTO `nhanvien` (`Id`, `HoTen`, `DiaChi`, `SoDT`, `ViTri`, `Email`, `PassWord`) VALUES
+INSERT INTO `nhanvien` (`Id`, `HoTen`, `DiaChi`, `SoDT`, `ChucVu`, `Email`, `PassWord`) VALUES
 (1, 'Nguyễn Văn Sang', 'Yên Phong Bắc Ninh', '0373853448', '', 'sanghjp12345s2@gmail.com', '123456'),
 (2, 'Nguyễn Thành Long', 'Thái Bình', '0377772117', '', 'longnguyen@gmail.com', '123456'),
 (3, 'Nguyễn Thị Hoài Anh', 'Bắc Ninh', NULL, '', 'miacute@gmail.com', '123456');
@@ -118,20 +112,17 @@ INSERT INTO `nhanvien` (`Id`, `HoTen`, `DiaChi`, `SoDT`, `ViTri`, `Email`, `Pass
 -- Cấu trúc bảng cho bảng `sanpham`
 --
 
-DROP TABLE IF EXISTS `sanpham`;
-CREATE TABLE IF NOT EXISTS `sanpham` (
-  `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+CREATE TABLE `sanpham` (
+  `Id` int(10) UNSIGNED NOT NULL,
   `IdDM` int(10) UNSIGNED NOT NULL,
   `TenSP` varchar(50) NOT NULL,
-  `GiaCT` float NOT NULL,
-  `GiaKM` float NOT NULL,
+  `GiaCT` int(11) NOT NULL,
+  `GiaKM` int(11) NOT NULL,
   `AnhSP` mediumtext NOT NULL,
   `ThuongHieu` varchar(20) NOT NULL,
   `DoiTuongSD` varchar(100) NOT NULL,
-  `MoTaSP` mediumtext NOT NULL,
-  PRIMARY KEY (`Id`),
-  KEY `FK_idtype` (`IdDM`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
+  `MoTaSP` mediumtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Đang đổ dữ liệu cho bảng `sanpham`
@@ -160,9 +151,8 @@ INSERT INTO `sanpham` (`Id`, `IdDM`, `TenSP`, `GiaCT`, `GiaKM`, `AnhSP`, `Thuong
 (25, 1004, 'Hồng Sâm SangA hàn Quốc', 470000, 450000, '\\mockup\\images\\hong_sam_baby_sanga_30_goi_1.jpg||\\mockup\\images\\42456940_330395270853170_1377404760675581952_n.jpg||\\mockup\\images\\sam-bay_71a9a491f3ed4b5d8bc7742dacb22878.jpg', '', '', 'Hồng Sâm Baby Sanga Hàn Quốc\r\n\r\nMÙA NÀY THỜI TIẾT GIAO MÙA DỄ ỐM VẶT NÊN RẤT CẦN BỔ SUNG CHO CÁC CON ĐỂ CÓ 1 SỨC KHOẺ THẬT TỐT \r\n\r\nVÌ SỨC KHOẺ VÀ SỰ PHÁT TRIỂN CỦA CON YÊU'),
 (26, 1004, 'Men vi sinh Antokid', 300000, 160000, '\\mockup\\images\\antokid.jpg||\\mockup\\images\\antokid.jpg||\\mockup\\images\\antokid.jpg', '', '', 'Nếu Trẻ hay trằn trọc quấy khóc về đêm, ngủ không sâu giấc là nỗi băn khoăn lo lắng của nhiều cha mẹ. Trẻ ngủ không đủ giấc, không ngủ đúng giờ sẽ dẫn đến nhiều hệ lụy như khó tăng chiều cao, suy giảm hệ miễn dịch, khả năng nhận thức bị tổn hại…  Vậy làm thế nào để giúp con ngủ ngon, ngủ đủ và ngủ đúng? Để giải quyết vấn đề này thì hôm nay công ty TNHH NUTRIFOOD Trúc Linh xin giới thiệu sản phẩm Men vi sinh Antokid.'),
 (27, 1004, 'Chất xơ chống táo bón Eco Fos', 190000, 100000, '\\mockup\\images\\eco_fos.jpg||\\mockup\\images\\eco_fos.jpg||\\mockup\\images\\eco_fos.jpg', '', '', 'Táo bón ở trẻ gần như đã trở thành “chuyện thường ngày ở huyện” ở mỗi gia đình. Khiến không ít ông bố bà mẹ “xót xa”  đứng ngồi không yên khi nhìn cảnh con đau bụng,khó chịu, quấy khóc, bỏ bữa.\r\n  -> Muốn con dứt hẳn chứng táo bón, mẹ cần bổ sung chất xơ hàng ngày cho bé. Tuy nhiên, các con thường rất lười ăn rau \r\nDo vậy, bật mí một chút! Xơ  #EcoFos  là món \"bảo bối\" cung cấp hàm lượng chất xơ dồi dào cho bé:\r\n- Hỗ trợ hiệu quả cải thiện tình trạng táo bón của các bé, phụ nữ mang thai và người cao tuổi\r\nvới chất xơ hòa tan (FOS) được chiết xuất từ rau diếp xoăn - Chicory Root (Nhập khẩu từ Chile)\r\n- Hỗ trợ tăng cường miễn dịch cho bé nhờ dưỡng chất HMO (Nhập khẩu từ CHLB Đức)\r\n- Sản phẩm có chứa đường Vitanose (Isomaltulose) an toàn cho người cho người tiểu đường\r\n- Hương vị thơm dịu nhẹ dễ sử dụng; pha, trộn vào thực phẩm khác mà không bị biến vị của thực phẩm\r\n- Mùi vị: thơm ngon như kẹo bông có vị ngọt nên trẻ rất thích '),
-(28, 1000, ' Sữa Colos Care 0+ 800g', 510000, 480000, ' mockupimagessua-coloscare-0-800g.jpg|| mockupimagessua-coloscare-0-800g-1.jpg|| mockupimagessua-coloscare-0-800g-2.jpg', 'Eneright Nuitrition', 'Eneright Nuitrition', ' S?a Colos Care 0+ t?ng c??ng mi?n d?ch s?c m?nh t? bï¿½n trong, phï¿½ng nhi?m khu?n hï¿½ h?p, tiï¿½u hï¿½a b?o v? tr? kh?i tï¿½c nhï¿½n gï¿½y b?nh  '),
 (29, 1005, ' Sữa Colos Care 1+ 800g', 500000, 460000, ' mockupimagessua-coloscare-1-800g.jpg|| mockupimagessua-coloscare-1-800g-1.jpg|| mockupimagessua-coloscare-1-800g-2.jpg', 'Eneright Nuitrition', 'Trẻ từ 6-36 tháng tuôi', ' S?a non ColosCare 1+ cung c?p hï¿½m l??ng s?a non cao IgG 1200+, Beta-Glucan, HMO 2`FL HMO, Lactoferrin giï¿½p t?ng c??ng mi?n d?ch, phï¿½t tri?n kh?e m?nh.  '),
-(30, 1000, 'Sữa Colosbaby 0+ 800g', 500000, 400000, '\\mockup\\images\\sua-colosbaby-0-4.jpg||\\mockup\\images\\sua-colosbaby-0-1.jpg||\\mockup\\images\\sua-colosbaby-0-2.jpg||\\mockup\\images\\sua-colosbaby-0-3.jpg', 'Eneright Nuitrition', 'Trẻ từ 0-12 tháng tuổi', 'Sữa ColosBaby Gold 0+ dgiúp bổ sung kháng thể IgG tự nhiên từ sữa non nhập khẩu từ Mỹ dành riêng cho trẻ từ 0 đến 12 tháng.'),
+(30, 1000, '  Sữa Colosbaby 0+ 800g', 2, 2, '               mockupimagessua-colosbaby-0-4.jpg||  mockupimagessua-colosbaby-0-1.jpg||               mockupimagessua-colosbaby-0-2.jpg', '               Eneri', '               Trẻ từ 0-12 tháng tuổi               ', '               Sữa ColosBaby Gold 0+ dgiúp bổ sung kháng thể IgG tự nhiên từ sữa non nhập khẩu từ Mỹ dành riêng cho trẻ từ 0 đến 12 tháng.                              '),
 (31, 1000, 'Sữa Colosbaby 1+ 800g', 500000, 470000, '\\mockup\\images\\sua-colosbaby-1-1.jpg||\\mockup\\images\\sua-colosbaby-1-2.jpg||\\mockup\\images\\sua-colosbaby-1-3.jpg||', '', '', 'Sữa ColosBaby 1+ là dinh dưỡng sữa non cao cấp dành cho trẻ từ 1 đến 2 tuổi, trẻ biếng ăn, suy dinh dưỡng, thấp còi.'),
 (32, 1000, 'Sữa non Colosbaby Gold 1 dạng thanh 546G', 500000, 400000, '\\mockup\\images\\sua-colosbaby-so-1-thanh.jpg', '', '', 'Sữa ColosBaby Gold là dinh dưỡng sữa non cao cấp dành cho trẻ từ 1 đến 2 tuổi, trẻ biếng ăn, suy dinh dưỡng, thấp còi.'),
 (33, 1000, 'Sữa non Santé Baby Colostrum 800g', 470000, 455000, '\\mockup\\images\\sua-sante-baby-colostrum-800g.jpg||\\mockup\\images\\sua-sante-baby-colostrum-800g-1.jpg||\\mockup\\images\\sua-sante-baby-colostrum-800g-2.jpg||\\mockup\\images\\sua-sante-baby-colostrum-800g-3.jpg', '', '', 'Sữa non Santé Baby dinh dưỡng giàu sữa non nhập khẩu từ Pháp giúp hệ miễn dịch của trẻ khỏe mạnh và tăng trưởng tốt.'),
@@ -188,7 +178,59 @@ INSERT INTO `sanpham` (`Id`, `IdDM`, `TenSP`, `GiaCT`, `GiaKM`, `AnhSP`, `Thuong
 (54, 1006, 'Bỉm Huggies quần L68', 350000, 310000, '\\mockup\\images\\Bỉm Quần Huggies L68 Miếng.jpg', '', '', 'Bỉm quần Huggies size L 68 miếng cho bé 9-14kg\r\n\r\n- Tã Quần Huggies size L 68 miếng (9- 14 kg) thấm hút tốt, không trào ngược, không gây khó chịu cho da bé, được sản xuất dựa trên công nghệ hiện đại với các lõi bông kết hợp hạt thấm hút, giúp trẻ luôn khô thoáng suốt ngày và đêm. Tã sở hữu độ thoáng khí tốt, có khả năng chống hăm nên mang lại cảm giác thoải mái và dễ chịu tuyệt đối cho bé. Giờ đây, thiên thần nhỏ của bạn có thể vô tư chơi đùa mà không lo bị gián đoạn cuộc vui.'),
 (55, 1006, 'Bỉm Merries size M', 420000, 380000, '\\mockup\\images\\bim-merries-dan-m64-6-11kg-5.jpg', '', '', 'Bỉm tã Merries size M 64 - Bỉm cho bé thương hiệu số 1 Nhật Bản\r\n\r\nBỉm Tã dán Merries size M siêu mềm, siêu thấm, siêu thông thoáng và siêu linh hoạt trong chuyển động.\r\nSiêu mềm mại\r\n\r\n    Bề mặt tiếp xúc điểm xốp mịn, tạo cảm giác êm ái, nâng cao da bé giúp hạn chế tiếp xúc với chất bẩn và những tác nhân có hại.\r\n\r\n    Chất liệu mềm mại, giúp làn da của bé không hẳn đỏ và dễ chịu.'),
 (56, 1006, 'Bỉm Merries size L', 420000, 380000, '\\mockup\\images\\ta-quan-merries-l44-9-14kg-5.jpg', '', '', 'Tã quần Merries size L44+6  được thiết kế đặc biệt dạng quần ôm vừa vặn với người bé và giúp bố mẹ tiết kiệm tối đa thời gian thay tã. Với bề mặt mịn màng, thông thoáng, tã giúp hạn chế tối đa hiện tượng hăm và ngứa ngáy khi mặc tã nên rất phù hợp với khí hậu nóng ẩm của Việt Nam. Lõi thấm hút kép giúp thấm hút nhanh, đều và ngăn thấm ngược giúp bé yêu của bạn luôn khô ráo đến 8 tiếng. Bé sẽ không còn cảm giác khó chịu vì phải mặc tã quá lâu hoặc trở mình khi ngủ. Tã quần Merries giúp hạn chế chất dịch lỏng tràn ra ngoài khi bé cử động. Sản phẩm được thiết kế với bề mặt tiếp xúc xốp mịn, vạch báo thay tã thông minh, khi vạch chuyển sang màu xanh lá sẽ là lúc bố mẹ cần thay tã cho trẻ luôn khô thoáng.'),
-(57, 1006, 'Bỉm Merries size XL', 420000, 380000, '\\mockup\\images\\bim-merries-quan-xl38-1.jpg', '', '', 'Tã quần Merries size XL 38+6 được thiết kế đặc biệt dạng quần ôm vừa vặn với người bé và giúp bố mẹ tiết kiệm tối đa thời gian thay tã. Với bề mặt mịn màng, thông thoáng, tã giúp hạn chế tối đa hiện tượng hăm và ngứa ngáy khi mặc tã nên rất phù hợp với khí hậu nóng ẩm của Việt Nam. Lõi thấm hút kép giúp thấm hút nhanh, đều và ngăn thấm ngược giúp bé yêu của bạn luôn khô ráo đến 8 tiếng. Sản phẩm phù hợp cho trẻ từ 12 - 22 kg. Tã quần Merries size XL có thiết kế dạng quần tiện dụng ôm vừa vặn người bé và hạn chế chất dịch lỏng tràn ra ngoài khi bé cử động hoặc trở mình khi ngủ. Ngoài ra, thiết kế đặc biệt này cũng giúp mẹ tiết kiệm được thời gian mỗi khi thay tã cho bé. Độ thấm hút rất cao nhờ lõi siêu thấm hút kép. Công nghệ tiên tiến ngăn chất lỏng và chất bẩn thấm ngược trở lại, giữ miếng tã khô ráo trong một khoảng thời gian từ 6 đến 8 tiếng nên bố mẹ có thể yên tâm rằng bé sẽ ngon giấc suốt đêm. Tã quần Merries được thiết kế với bề mặt tiếp xúc xốp mịn. Thêm vào đó là màng đáy thoát khí đặc biệt giúp hạn chế tối đa hiện tượng hăm tã. Bé sẽ không cảm thấy khó chịu ngay cả khi phải mặc tã trong một thời gian dài. Vạch báo thay tã thông minh, khi vạch chuyển sang màu xanh lá sẽ là lúc bố mẹ cần thay tã cho trẻ luôn khô thoáng. Thiết kế ưu việt giúp tã ôm vừa vặn với người bé, cho bé luôn cảm thấy thoải mái mỗi khi vận động hoặc trở mình khi ngủ. Bé sẽ không còn cảm giác khó chịu vì phải mặc tã quá lâu.');
+(57, 1006, 'Bỉm Merries size XL', 420000, 380000, '\\mockup\\images\\bim-merries-quan-xl38-1.jpg', '', '', 'Tã quần Merries size XL 38+6 được thiết kế đặc biệt dạng quần ôm vừa vặn với người bé và giúp bố mẹ tiết kiệm tối đa thời gian thay tã. Với bề mặt mịn màng, thông thoáng, tã giúp hạn chế tối đa hiện tượng hăm và ngứa ngáy khi mặc tã nên rất phù hợp với khí hậu nóng ẩm của Việt Nam. Lõi thấm hút kép giúp thấm hút nhanh, đều và ngăn thấm ngược giúp bé yêu của bạn luôn khô ráo đến 8 tiếng. Sản phẩm phù hợp cho trẻ từ 12 - 22 kg. Tã quần Merries size XL có thiết kế dạng quần tiện dụng ôm vừa vặn người bé và hạn chế chất dịch lỏng tràn ra ngoài khi bé cử động hoặc trở mình khi ngủ. Ngoài ra, thiết kế đặc biệt này cũng giúp mẹ tiết kiệm được thời gian mỗi khi thay tã cho bé. Độ thấm hút rất cao nhờ lõi siêu thấm hút kép. Công nghệ tiên tiến ngăn chất lỏng và chất bẩn thấm ngược trở lại, giữ miếng tã khô ráo trong một khoảng thời gian từ 6 đến 8 tiếng nên bố mẹ có thể yên tâm rằng bé sẽ ngon giấc suốt đêm. Tã quần Merries được thiết kế với bề mặt tiếp xúc xốp mịn. Thêm vào đó là màng đáy thoát khí đặc biệt giúp hạn chế tối đa hiện tượng hăm tã. Bé sẽ không cảm thấy khó chịu ngay cả khi phải mặc tã trong một thời gian dài. Vạch báo thay tã thông minh, khi vạch chuyển sang màu xanh lá sẽ là lúc bố mẹ cần thay tã cho trẻ luôn khô thoáng. Thiết kế ưu việt giúp tã ôm vừa vặn với người bé, cho bé luôn cảm thấy thoải mái mỗi khi vận động hoặc trở mình khi ngủ. Bé sẽ không còn cảm giác khó chịu vì phải mặc tã quá lâu.'),
+(58, 1, 'Sữa Colosbaby 0+ 800g', 5000001, 500000011, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF5yjB8OzJV7Il2UTXQVvAFuWYsk7If_Dj1Q&usqp=CAU||https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF5yjB8OzJV7Il2UTXQVvAFuWYsk7If_Dj1Q&usqp=CAU||https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQF5yjB8OzJV7Il2UTXQVvAFuWYsk7If_Dj1Q&usqp=CAU', 'maxximum', 'trẻ con từ 9 den 10 tuổi', 'rất ngon');
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `danhmuc`
+--
+ALTER TABLE `danhmuc`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Chỉ mục cho bảng `khachhang`
+--
+ALTER TABLE `khachhang`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Chỉ mục cho bảng `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Chỉ mục cho bảng `sanpham`
+--
+ALTER TABLE `sanpham`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `FK_idtype` (`IdDM`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `khachhang`
+--
+ALTER TABLE `khachhang`
+  MODIFY `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT cho bảng `nhanvien`
+--
+ALTER TABLE `nhanvien`
+  MODIFY `Id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `sanpham`
+--
+ALTER TABLE `sanpham`
+  MODIFY `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
